@@ -12,8 +12,8 @@ def _trace_calls(frame, event, arg=None):
             # Temporarily disable the trace function
             sys.settrace(None)
             # check condition here
-            if not found and torch.cuda.device_count.cache_info().currsize > 0:
-            # if not found and torch.cuda._initialized:
+            # if not found and torch.cuda.device_count.cache_info().currsize > 0:
+            if not found and torch.cuda._initialized:
                 found = True
                 traceback.print_stack()
             # Re-enable the trace function
